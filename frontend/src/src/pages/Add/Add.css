@@ -1,0 +1,70 @@
+/* General layout styles */
+.add {
+  width: 50%;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #6d6d6d;
+  font-size: 16px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add form {
+  gap: 20px;
+}
+.add-receiver-name,
+.add-receiver-address {
+  width: max(40%, 280px);
+}
+
+.add-button {
+  width: 120px;
+  border: none;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.add-receiver-name input,
+.add-receiver-address textarea {
+  display: flex;
+  padding: 10px;
+}
+
+.add-receiver-noOfPeople,
+.add-receiver-phoneNumber {
+  display: flex;
+  gap: 30px;
+}
+
+.add-receiver-noOfPeople input,
+.add-receiver-phoneNumber input {
+  max-width: 120px;
+  padding: 10px;
+}
+
+.add-img-upload {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-img-upload img {
+  height: 100px;
+  width: 100px;
+}
+
+
+/* Other layout styles */
+.app-content {
+  display: flex;
+}
+
+hr {
+  height: 1px;
+  background-color: #a9a9a9;
+}

@@ -1,0 +1,43 @@
+
+.view {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .list-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .list-table th,
+  .list-table td {
+    border: 1px solid #cacaca;
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .list-table th {
+    background-color: #f9f9f9;
+  }
+  
+  .list-table img {
+    width: 50px;
+  }
+  
+  @media (max-width: 600px) {
+    .list-table th,
+    .list-table td {
+      padding: 8px 10px;
+    }
+  
+    .list-table th:nth-child(n+2),
+    .list-table td:nth-child(n+2) {
+      display: none;
+    }
+  }
+  

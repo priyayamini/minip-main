@@ -1,0 +1,58 @@
+/* NavBarU.css */
+
+/* NavBar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 4%; /* Increased padding to increase height */
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Logo styles */
+.logo {
+  height: 50px;
+  width: auto;
+  margin-right: 10px; /* Adjust spacing between logo and profile */
+}
+
+/* Profile container to manage dropdown */
+.profile-container {
+  position: relative;
+  margin-left: auto; /* Pushes profile image to the right */
+}
+
+/* Profile image styles */
+.profile {
+  height: 60px;
+  width: 60px;
+  cursor: pointer; /* Indicates clickable item */
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Dropdown button styles */
+.dropdown-menu button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background: #0056b3;
+}
