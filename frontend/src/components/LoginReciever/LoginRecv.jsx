@@ -34,7 +34,7 @@ const LoginRecv = ({setIsLoggedInR}) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/api/reciever/register', { name: signupData.name, email: signupData.email, password: signupData.password })
+    axios.post('https://minip-backend-hxj0.onrender.com/api/reciever/register', { name: signupData.name, email: signupData.email, password: signupData.password })
       .then(result => {
         console.log(result);
         navigate('/loginrecv');
