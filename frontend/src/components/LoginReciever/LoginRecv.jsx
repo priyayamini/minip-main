@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const LoginRecv = ({setIsLoggedInR}) => {
-  const [currState, setCurrState] = useState('Login'); 
+const LoginRecv = ({ setIsLoggedInR }) => {
+  const [currState, setCurrState] = useState('Login');
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -34,10 +34,15 @@ const LoginRecv = ({setIsLoggedInR}) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    axios.post('https://minip-backend-hxj0.onrender.com/api/reciever/register', { name: signupData.name, email: signupData.email, password: signupData.password })
+    axios.post('https://minip-backend-hxj0.onrender.com/api/reciever/register', { name: signupData.name, email: signupData.email, password: signupData.password }) // Update the endpoint to the publicly accessible URL
       .then(result => {
         console.log(result);
-        navigate('/loginrecv');
+        setSignupData({
+          name: '',
+          email: '',
+          password: ''
+        });
+        setCurrState('Login'); // Switch to the login tab after successful signup
       })
       .catch(err => console.log(err));
   };
@@ -48,7 +53,7 @@ const LoginRecv = ({setIsLoggedInR}) => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: 'black' }}>
-      <div className="card p-4" style={{ width: '400px' , backgroundColor:"#00b894"}}>
+      <div className="card p-4" style={{ width: '400px', backgroundColor: "#00b894" }}>
         <h2 className="text-center mb-4">{currState === 'Login' ? 'Login' : 'Signup'}</h2>
         {currState === 'Login' && (
           <form onSubmit={handleLogin}>
