@@ -5,34 +5,46 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = ({ setIsLoggedIn }) => {
   const [currState, setCurrState] = useState('Login');
-  const [loginData, setLoginData] = useState({ email: '', password: '' });
-  const [signupData, setSignupData] = useState({ name: '', email: '', password: '' });
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
+  });
+  const [signupData, setSignupData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
   const [token, setToken] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    axios.post('https://minip-backend-hxj0.onrender.com/api/user/login', loginData)
+    axios.post('https://minip-backend-hxj0.onrender.com/api/user/login', { email: loginData.email, password: loginData.password })
       .then(response => {
         if (response.data.success) {
-          setIsLoggedIn(true);
           setToken(response.data.token);
           localStorage.setItem('token', response.data.token);
+          setIsLoggedIn(true);
         } else {
           alert(response.data.message);
         }
       })
-      .catch(err => console.error(err));
+      .catch(err => console.log(err));
   };
 
   const handleSignup = (e) => {
     e.preventDefault();
-    axios.post('https://minip-backend-hxj0.onrender.com/api/user/register', signupData)
+    axios.post('https://minip-backend-hxj0.onrender.com/api/user/register', { name: signupData.name, email: signupData.email, password: signupData.password }) // Update the endpoint to the publicly accessible URL
       .then(result => {
         console.log(result);
-        navigate('/login');
+        setSignupData({
+          name: '',
+          email: '',
+          password: ''
+        });
+        setCurrState('Login'); // Switch to the login tab after successful signup
       })
-      .catch(err => console.error(err));
+      .catch(err => console.log(err));
   };
 
   const handleTabChange = (tab) => {
@@ -41,7 +53,7 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: 'black' }}>
-      <div className="card p-4" style={{ width: '400px' , backgroundColor:"InactiveCaption"}}>
+      <div className="card p-4" style={{ width: '400px', backgroundColor: "#00b894" }}>
         <h2 className="text-center mb-4">{currState === 'Login' ? 'Login' : 'Signup'}</h2>
         {currState === 'Login' && (
           <form onSubmit={handleLogin}>
