@@ -27,7 +27,7 @@ const Login = ({ setIsLoggedIn }) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/api/user/register', signupData)
+    axios.post('https://minip-backend-hxj0.onrender.com/api/user/register', signupData)
       .then(result => {
         console.log(result);
         navigate('/login');
